@@ -1,0 +1,10 @@
+
+.idea/workspace.xml
+CMakeCache.txt
+CMakeFiles/
+Makefile
+MasterProject
+MasterProject.cbp
+cmake-build-debug/
+cmake_install.cmake
+test.xml
