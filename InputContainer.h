@@ -14,6 +14,8 @@ public:
 
     InputContainer(std::string file);
 
+    InputContainer(const char *file);
+
 private:
     void parseInputFile(const char* file);
 

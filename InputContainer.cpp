@@ -11,6 +11,12 @@ InputContainer::InputContainer(std::string file) {
 
 }
 
+InputContainer::InputContainer(const char *file) {
+
+    parseInputFile(file);
+
+}
+
 void InputContainer::parseInputFile(const char *file) {
     tinyxml2::XMLDocument in;
     in.LoadFile(file);
