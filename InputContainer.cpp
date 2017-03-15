@@ -33,7 +33,7 @@ void InputContainer::parseInputFile(const char *file) {
 
         auto *resources = meta_job->FirstChildElement("Resources");
         for (auto *resource = resources->FirstChildElement("Node");
-             resource != nullptr; resource->NextSiblingElement("Node")) {
+             resource != nullptr; resource = resource->NextSiblingElement("Node")) {
 
             Resource node;
 
