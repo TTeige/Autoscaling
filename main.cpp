@@ -1,6 +1,7 @@
 #include <iostream>
+#include "InputContainer.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    InputContainer input("test.xml");
     return 0;
 }

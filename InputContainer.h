@@ -14,16 +14,20 @@ public:
 
     InputContainer(std::string file);
 
+private:
+    void parseInputFile(const char* file);
+
 public:
     struct Resource {
         std::string id;
+        int memory;
         //TODO: add resource data
     };
 
     struct MetaJob {
         int duration;
         std::string id;
-        std::vector<Resource> mResources;
+        std::vector<Resource> resources;
     };
 
     std::vector<MetaJob> mJobs;
