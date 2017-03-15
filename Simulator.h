@@ -6,9 +6,36 @@
 #define MASTERPROJECT_SIMULATOR_H
 
 
+#include "AutoscalingInterface.h"
+#include "InputContainer.h"
+
 class Simulator {
 public:
     Simulator();
+
+    Simulator(InputContainer input);
+    Simulator(std::string file);
+
+    Simulator(AutoscalingInterface *alg);
+    Simulator(AutoscalingInterface *alg, InputContainer input);
+
+    void addInput(std::string file);
+    void addInput(const char *file);
+
+    void addAlgorithm(AutoscalingInterface *alg);
+
+    void simulate();
+
+    void simulate(AutoscalingInterface *alg);
+
+private:
+
+    void runSimulation();
+
+private:
+
+    AutoscalingInterface *mAlg = nullptr;
+    InputContainer mInput;
 
 };
 

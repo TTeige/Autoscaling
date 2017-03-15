@@ -12,9 +12,14 @@
 class InputContainer {
 public:
 
+    InputContainer();
+
     InputContainer(std::string file);
 
     InputContainer(const char *file);
+
+    void addInput(std::string file);
+    void addInput(const char *file);
 
 private:
     void parseInputFile(const char* file);

@@ -6,6 +6,10 @@
 #include <tinyxml2.h>
 #include <iostream>
 
+InputContainer::InputContainer() {
+
+}
+
 InputContainer::InputContainer(std::string file) {
     parseInputFile(file.c_str());
 
@@ -15,6 +19,14 @@ InputContainer::InputContainer(const char *file) {
 
     parseInputFile(file);
 
+}
+
+void InputContainer::addInput(std::string file) {
+    parseInputFile(file.c_str());
+}
+
+void InputContainer::addInput(const char *file) {
+    parseInputFile(file);
 }
 
 void InputContainer::parseInputFile(const char *file) {
