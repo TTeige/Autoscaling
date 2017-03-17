@@ -33,10 +33,10 @@ void InputContainer::parseInputFile(const char *file) {
     tinyxml2::XMLDocument in;
     in.LoadFile(file);
 
-    auto *data = in.FirstChildElement("data");
+    auto *data = in.FirstChildElement("Data");
 
     for (auto *meta_job = data->FirstChildElement("MetaJob");
-         meta_job != nullptr; meta_job = data->NextSiblingElement("MetaJob")) {
+         meta_job != nullptr; meta_job = meta_job->NextSiblingElement("MetaJob")) {
 
         InputContainer::MetaJob job;
 
