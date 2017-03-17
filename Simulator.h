@@ -22,7 +22,7 @@ public:
     void addInput(std::string file);
     void addInput(const char *file);
 
-    void addAlgorithm(AutoscalingInterface *alg);
+    void setAlgorithm(AutoscalingInterface *alg);
 
     void simulate();
 

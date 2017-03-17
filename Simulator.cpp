@@ -2,6 +2,7 @@
 // Created by tim on 15.03.17.
 //
 
+#include <iostream>
 #include "Simulator.h"
 
 Simulator::Simulator() {
@@ -38,7 +39,7 @@ void Simulator::addInput(const char *file) {
     mInput = InputContainer(file);
 }
 
-void Simulator::addAlgorithm(AutoscalingInterface *alg) {
+void Simulator::setAlgorithm(AutoscalingInterface *alg) {
 
     mAlg = alg;
 
@@ -54,5 +55,9 @@ void Simulator::simulate(AutoscalingInterface *alg) {
 }
 
 void Simulator::runSimulation() {
+    if(mAlg == nullptr) {
+        std::cout << "No algorithm specified for the simulation" << std::endl;
+        return;
+    }
 
 }

@@ -9,6 +9,7 @@
 class AutoscalingInterface {
 public:
     virtual void doScale() = 0;
+    virtual void queryResources() = 0;
 
 };
 
