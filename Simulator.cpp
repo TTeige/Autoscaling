@@ -15,7 +15,7 @@ Simulator::Simulator(InputContainer input) :
 }
 
 Simulator::Simulator(std::string file) :
-        mInput(file) {
+        mInput(InputContainer(file)) {
 
 
 }
@@ -31,12 +31,16 @@ Simulator::Simulator(AutoscalingInterface *alg, InputContainer input) :
 
 }
 
-void Simulator::addInput(std::string file) {
+void Simulator::setInput(std::string file) {
     mInput = InputContainer(file);
 }
 
-void Simulator::addInput(const char *file) {
+void Simulator::setInput(const char *file) {
     mInput = InputContainer(file);
+}
+
+void Simulator::setInput(InputContainer input) {
+    mInput = input;
 }
 
 void Simulator::setAlgorithm(AutoscalingInterface *alg) {
@@ -55,7 +59,7 @@ void Simulator::simulate(AutoscalingInterface *alg) {
 }
 
 void Simulator::runSimulation() {
-    if(mAlg == nullptr) {
+    if (mAlg == nullptr) {
         std::cout << "No algorithm specified for the simulation" << std::endl;
         return;
     }

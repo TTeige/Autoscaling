@@ -19,10 +19,11 @@ public:
     InputContainer(const char *file);
 
     void addInput(std::string file);
+
     void addInput(const char *file);
 
 private:
-    void parseInputFile(const char* file);
+    void parseInputFile(const char *file);
 
 public:
     struct Resource {

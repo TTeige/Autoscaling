@@ -14,13 +14,18 @@ public:
     Simulator();
 
     Simulator(InputContainer input);
+
     Simulator(std::string file);
 
     Simulator(AutoscalingInterface *alg);
+
     Simulator(AutoscalingInterface *alg, InputContainer input);
 
-    void addInput(std::string file);
-    void addInput(const char *file);
+    void setInput(std::string file);
+
+    void setInput(const char *file);
+
+    void setInput(InputContainer input);
 
     void setAlgorithm(AutoscalingInterface *alg);
 
