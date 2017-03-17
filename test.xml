@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Data>
+    <MetaJob id="test">
+        <Runtime>10</Runtime>
+        <Resources>
+            <Node id="1">
+                <Memory>14</Memory>
+            </Node>
+            <Node id="2">
+                <Memory>2</Memory>
+            </Node>
+            <Node id="3">
+                <Memory>2</Memory>
+            </Node>
+            <Node id="4">
+                <Memory>8</Memory>
+            </Node>
+            <Node id="5">
+                <Memory>14</Memory>
+            </Node>
+        </Resources>
+    </MetaJob>
+    <MetaJob id="test2">
+        <Runtime>4</Runtime>
+        <Resources>
+            <Node id="1">
+                <Memory>14</Memory>
+            </Node>
+            <Node id="3">
+                <Memory>2</Memory>
+            </Node>
+        </Resources>
+    </MetaJob>
+</Data>
