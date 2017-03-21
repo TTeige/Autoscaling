@@ -41,12 +41,14 @@ void InputContainer::parseInputFile(const char *file) {
         InputContainer::MetaJob job;
 
         const char *job_name = meta_job->Attribute("id");
-        if (job_name == nullptr) {
-            std::cout << "Error parsing for the name / id of the meta pipe job" << std::endl;
+        const char *type = meta_job->Attribute("platform");
+        if (job_name == nullptr || type == nullptr) {
+            std::cout << "Error parsing for the id / type of the meta pipe job" << std::endl;
             exit(0);
         }
 
         job.id = std::string(job_name);
+        job.platform = std::string(type);
         meta_job->FirstChildElement("Runtime")->QueryIntText(&job.duration);
 
         auto *resources = meta_job->FirstChildElement("Resources");

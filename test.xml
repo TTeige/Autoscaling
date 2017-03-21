@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Data>
-    <MetaJob id="test">
+    <MetaJob id="test" platform="stallo">
         <Runtime>10</Runtime>
         <Resources>
             <Node id="1">
@@ -20,7 +20,7 @@
             </Node>
         </Resources>
     </MetaJob>
-    <MetaJob id="test2">
+    <MetaJob id="test2" platform="aws">
         <Runtime>4</Runtime>
         <Resources>
             <Node id="1">

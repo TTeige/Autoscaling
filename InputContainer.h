@@ -34,6 +34,7 @@ public:
 
     struct MetaJob {
         int duration;
+        std::string platform;
         std::string id;
         std::vector<Resource> resources;
     };

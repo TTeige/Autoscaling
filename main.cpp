@@ -1,11 +1,10 @@
 #include <iostream>
-#include "InputContainer.h"
 #include "TrivialAutoscale.h"
 #include "Simulator.h"
 
 int main() {
-    InputContainer input("test.xml");
-    TrivialAutoscale alg = TrivialAutoscale(input);
-    Simulator sim = Simulator(&alg);
+    TrivialAutoscale alg("test.xml");
+    Simulator sim(&alg);
+    sim.simulate();
     return 0;
 }
