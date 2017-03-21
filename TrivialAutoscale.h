@@ -9,6 +9,7 @@
 #include "AutoscalingInterface.h"
 #include "InputContainer.h"
 
+template<typename Job, typename Res>
 class TrivialAutoscale : public AutoscalingInterface {
 public:
 
@@ -21,13 +22,18 @@ public:
 private:
     void doScale() override;
 
-    const void queryJob(const char *job_id) override;
+    Job queryJob(const char *job_id) override;
 
-    const void queryResources(const char *resource_id) override;
+    Res queryResources(const char *resource_id) override;
+
+    void addResource() override;
+
+    void removeResource() override;
 
 private:
     InputContainer mInput;
 };
 
+#include "TrivialAutoscale.cpp"
 
 #endif //MASTERPROJECT_TRIVIALAUTOSCALE_H

@@ -8,6 +8,8 @@
 
 #include <fstream>
 #include <vector>
+#include <map>
+
 
 class InputContainer {
 public:
@@ -27,7 +29,6 @@ private:
 
 public:
     struct Resource {
-        std::string id;
         int memory;
         //TODO: add resource data
     };
@@ -35,11 +36,10 @@ public:
     struct MetaJob {
         int duration;
         std::string platform;
-        std::string id;
-        std::vector<Resource> resources;
+        std::map<std::string, Resource> resources;
     };
 
-    std::vector<MetaJob> mJobs;
+    std::map<std::string, MetaJob> mJobs;
 };
 
 
