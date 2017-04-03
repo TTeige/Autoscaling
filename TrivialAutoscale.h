@@ -9,31 +9,33 @@
 #include "AutoscalingInterface.h"
 #include "InputContainer.h"
 
-template<typename Job, typename Res>
 class TrivialAutoscale : public AutoscalingInterface {
 public:
+    TrivialAutoscale(std::string input_file, const char *platform);
 
-    TrivialAutoscale(const char *input_file);
+    TrivialAutoscale(const char *input_file, const char *platform);
 
-    TrivialAutoscale(InputContainer input);
+    TrivialAutoscale(InputContainer input, const char *platform);
 
     void replaceInput(const char *input_file) override;
+
+    void run() override;
 
 private:
     void doScale() override;
 
-    Job queryJob(const char *job_id) override;
+    void queryJob(const char *job_id) override;
 
-    Res queryResources(const char *resource_id) override;
+    void queryResources(const char *resource_id) override;
 
     void addResource() override;
 
-    void removeResource() override;
+    void removeResource(const char *resource) override;
 
 private:
     InputContainer mInput;
+    InputContainer::MetaJob *mCurrentJob;
+    InputContainer::Resource *mCurrentResource;
 };
-
-#include "TrivialAutoscale.cpp"
 
 #endif //MASTERPROJECT_TRIVIALAUTOSCALE_H

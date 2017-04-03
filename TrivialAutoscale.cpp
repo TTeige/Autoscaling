@@ -5,48 +5,55 @@
 #include <iostream>
 #include "TrivialAutoscale.h"
 
-template<typename Job, typename Res>
-TrivialAutoscale::TrivialAutoscale(const char *input_file) {
+TrivialAutoscale::TrivialAutoscale(std::string input_file, const char *platform) : AutoscalingInterface (platform){
     mInput = InputContainer(input_file);
 }
 
-template<typename Job, typename Res>
-TrivialAutoscale::TrivialAutoscale(InputContainer input) {
+TrivialAutoscale::TrivialAutoscale(const char *input_file, const char *platform) : AutoscalingInterface (platform) {
+    mInput = InputContainer(input_file);
+}
+
+TrivialAutoscale::TrivialAutoscale(InputContainer input, const char *platform) : AutoscalingInterface (platform) {
     mInput = input;
 }
 
-template<typename Job, typename Res>
 void TrivialAutoscale::replaceInput(const char *input_file) {
     mInput = InputContainer(input_file);
 }
 
-template<typename Job, typename Res>
 void TrivialAutoscale::doScale() {
 
 }
 
-template<typename Job, typename Res>
-Job TrivialAutoscale::queryJob(const char *job_id) {
+void TrivialAutoscale::queryJob(const char *job_id) {
 
-    auto job = mInput.mJobs.find(std::string(job_id));
+    auto job_iter = mInput.mJobs.find(std::string(job_id));
 
-    if (job != mInput.mJobs.end()) {
-        InputContainer::MetaJob meta_job = job->second;
+    if (job_iter != mInput.mJobs.end()) {
+        mCurrentJob = &job_iter->second;
     }
-    return;
 }
 
-template<typename Job, typename Res>
-Res TrivialAutoscale::queryResources(const char *resource_id) {
-    return;
+void TrivialAutoscale::queryResources(const char *resource_id) {
+    auto res_iter = mInput.mResources.find(std::string(resource_id));
+
+    if (res_iter != mInput.mResources.end()) {
+        mCurrentResource = &res_iter->second;
+    }
 }
 
-template<typename Job, typename Res>
 void TrivialAutoscale::addResource() {
 
+    //Query the specific API for a new resource and link it to the job
+
 }
 
-template<typename Job, typename Res>
-void TrivialAutoscale::removeResource() {
+void TrivialAutoscale::removeResource(const char *resource) {
+
+    //Request a shutdown of a resource to remove it from the allocated resources
+
+}
+
+void TrivialAutoscale::run() {
 
 }

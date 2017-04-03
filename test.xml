@@ -2,6 +2,7 @@
 <Data>
     <MetaJob id="test" platform="stallo">
         <Runtime>10</Runtime>
+        <Scalability>0.23</Scalability>
         <Resources>
             <Node id="1">
                 <Memory>14</Memory>
@@ -22,6 +23,7 @@
     </MetaJob>
     <MetaJob id="test2" platform="aws">
         <Runtime>4</Runtime>
+        <Scalability>0.4</Scalability>
         <Resources>
             <Node id="1">
                 <Memory>14</Memory>

@@ -36,11 +36,13 @@ public:
     struct MetaJob {
         int duration;
         std::string platform;
-        std::map<std::string, Resource> resources;
+        float scalability;
+        //Array of resources allocated to the job
+        std::vector<std::string> resources;
     };
 
     std::map<std::string, MetaJob> mJobs;
+    std::map<std::string, Resource> mResources;
 };
-
 
 #endif //MASTERPROJECT_INPUTCONTAINER_H

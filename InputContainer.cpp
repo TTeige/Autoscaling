@@ -49,6 +49,7 @@ void InputContainer::parseInputFile(const char *file) {
 
 
         meta_job->FirstChildElement("Runtime")->QueryIntText(&job.duration);
+        meta_job->FirstChildElement("Scalability")->QueryFloatText(&job.scalability);
 
         auto *resources = meta_job->FirstChildElement("Resources");
         for (auto *resource = resources->FirstChildElement("Node");
@@ -63,7 +64,10 @@ void InputContainer::parseInputFile(const char *file) {
             }
 
             resource->FirstChildElement("Memory")->QueryIntText(&node.memory);
-            job.resources.insert(std::pair<std::string, InputContainer::Resource>(std::string(r_id), node));
+
+            job.resources.push_back(std::string(r_id));
+
+            mResources.insert(std::pair<std::string, InputContainer::Resource>(std::string(r_id), node));
         }
         std::cout << "Inserted job: " << job_id << std::endl;
         mJobs.insert(std::pair<std::string, InputContainer::MetaJob>(job_id, job));

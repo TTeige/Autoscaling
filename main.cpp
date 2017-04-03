@@ -3,7 +3,7 @@
 #include "Simulator.h"
 
 int main() {
-    TrivialAutoscale<InputContainer::MetaJob, InputContainer::Resource> alg("test.xml");
+    TrivialAutoscale alg("test.xml", "simulate");
     Simulator sim(&alg);
     sim.simulate();
     return 0;

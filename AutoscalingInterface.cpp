@@ -3,3 +3,7 @@
 //
 
 #include "AutoscalingInterface.h"
+
+AutoscalingInterface::AutoscalingInterface(const char *platform) {
+    mPlatform = std::string(platform);
+}

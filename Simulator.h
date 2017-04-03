@@ -5,10 +5,8 @@
 #ifndef MASTERPROJECT_SIMULATOR_H
 #define MASTERPROJECT_SIMULATOR_H
 
-
 #include "AutoscalingInterface.h"
 #include "InputContainer.h"
-
 class Simulator {
 public:
     Simulator();
@@ -19,7 +17,7 @@ public:
 
     Simulator(AutoscalingInterface *alg);
 
-    Simulator(AutoscalingInterface *alg, InputContainer input);
+    Simulator(AutoscalingInterface*alg, InputContainer input);
 
     void setInput(std::string file);
 
@@ -43,6 +41,5 @@ private:
     InputContainer mInput;
 
 };
-
 
 #endif //MASTERPROJECT_SIMULATOR_H
